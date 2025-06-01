@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleNature7 | Beauty Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        :root {
+            --pink: #FF85A2;
+            --purple: #A78BFA;
+            --teal: #2DD4BF;
+            --gold: #F9C74F;
+            --navy: #1E3A8A;
+            --dark: #2F2E41;
+            --light: #FFF9FB;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--pink), var(--purple));
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--pink), var(--purple));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 133, 162, 0.3);
+        }
+        
+        /* ===== HEADER & NAV ===== */
+        header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--pink), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--pink);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* ===== MAKEUP SECTION ===== */
+        .makeup-hero {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=60');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .makeup-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .makeup-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .makeup-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .makeup-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .makeup-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .makeup-card:hover .makeup-img img {
+            transform: scale(1.1);
+        }
+        
+        .makeup-content {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .makeup-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        /* ===== HAIRCARE SECTION ===== */
+        .haircare-hero {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhhaXIlMjBjYXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=60');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .hair-type-guide {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .hair-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hair-card h3 {
+            color: var(--navy);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hair-card h3 i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+        
+        .hair-card ul {
+            list-style-position: inside;
+            margin-top: 15px;
+        }
+        
+        .hair-card li {
+            margin-bottom: 8px;
+        }
+        /* SKIN CARE SECTION */
+         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: #2a5a78;
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Skincare Routine */
+        .skincare-routine {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .step-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #e8f4fc;
+            color: #2a5a78;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            color: #2a5a78;
+            margin-bottom: 15px;
+        }
+        
+        .step-description {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .product-recommendation {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .product-name {
+            font-weight: bold;
+            color: #2a5a78;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .step-card {
+                width: 100%;
+            }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            background: white;
+            border-radius: 10px;
+            padding: 60px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(167, 139, 250, 0.1);
+            color: var(--purple);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--purple);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 992px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .makeup-hero, .haircare-hero {
+                padding: 60px 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-section {
+                padding: 40px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .makeup-hero h1, .haircare-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">StyleNature7</a>
+                <div class="nav-links">
+                  
+                    <a href="#skincare">Skincare</a>
+                    <a href="#makeup">Makeup</a>
+                    <a href="#haircare">Haircare</a>
+                     <a href="#about">About</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    <section id="skincare">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple Skincare Routine</h2>
+                <p>A basic 3-step routine to keep your skin healthy and glowing. Perfect for beginners or those who prefer minimal skincare.</p>
+            </div>
+            
+            <div class="skincare-routine">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Cleanse</h3>
+                    <p class="step-description">
+                        Start with a gentle cleanser to remove dirt, oil, and impurities without stripping your skin's natural moisture.
+                    </p>
+                    <div class="product-recommendation">
+                        <span class="product-name">Recommended:</span> CeraVe Hydrating Facial Cleanser or La Roche-Posay Toleriane Cleanser
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Treat</h3>
+                    <p class="step-description">
+                        Apply treatment products like serums or moisturizers with active ingredients tailored to your skin concerns.
+                    </p>
+                    <div class="product-recommendation">
+                        <span class="product-name">Recommended:</span> The Ordinary Niacinamide Serum (for oiliness) or CeraVe Moisturizing Cream (for dryness)
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Protect</h3>
+                    <p class="step-description">
+                        Always finish with SPF during the day to protect your skin from harmful UV rays and prevent premature aging.
+                    </p>
+                    <div class="product-recommendation">
+                        <span class="product-name">Recommended:</span> EltaMD UV Clear SPF 46 or Supergoop! Unseen Sunscreen
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Makeup Section -->
+    <section id="makeup">
+        <div class="makeup-hero">
+            <h1>Makeup Reviews & Tutorials</h1>
+            <p>Discover honest reviews of the best cosmetics and learn professional application techniques</p>
+        </div>
+        
+        <div class="container">
+            <div class="section-title">
+                <h2>Makeup Categories</h2>
+            </div>
+            
+            <div class="makeup-categories">
+                <!-- Foundation -->
+                <div class="makeup-card">
+                    <div class="makeup-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy0Gc-fFJQ_8COTlKFSUM4-douSGKQ1kFd5jNj1uRgV7gdrOo_7A5eVlo2K7eSaid-bQo&usqp=CAU" alt="Foundations">
+                    </div>
+                    <div class="makeup-content">
+                        <h3>Foundations</h3>
+                        <p>Create a smooth, even base with lightweight coverage that lasts all day. Perfect for a natural or full-glam look—your flawless skin starts here!</p>
+                        <a href="#" class="btn" style="margin-top: 15px; display: inline-block;">View product</a>
+                    </div>
+                </div>
+                
+                <!-- Eyeshadow -->
+                <div class="makeup-card">
+                    <div class="makeup-img">
+                        <img src="https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000,format=auto/m/34d7/f0ae/1bd9/e583/1c02/c946/a410/34ed/8ad9/7a8a/7a8a.jpg" alt="Eyeshadow">
+                    </div>
+                    <div class="makeup-content">
+                        <h3>Eyeshadow Palettes</h3>
+                        <p>From soft neutrals to bold hues—mix, match, and blend your perfect eye look. Highly pigmented shades for endless creativity!</p>
+                        <a href="#" class="btn" style="margin-top: 15px; display: inline-block;">View product</a>
+                    </div>
+                </div>
+                <!-- Makeup Brush -->
+                <div class="makeup-card">
+                    <div class="makeup-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhs37-7h5GOGANyZ-7U0JjQgTR2u67KTFGcA&s" alt="Eyeshadow">
+                    </div>
+                    <div class="makeup-content">
+                        <h3>Makeup Brush</h3>
+                        <p>Soft, precise, and perfect for flawless application. Ideal for blending foundation, blush, or eyeshadow with ease. A must-have tool for every makeup lover!</p>
+                        <a href="#" class="btn" style="margin-top: 15px; display: inline-block;">View product</a>
+                    </div>
+                </div>
+                
+                <!-- Lipstick -->
+                <div class="makeup-card">
+                    <div class="makeup-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk7l84UzKz_HfMcmiXGclj8KCPjcyZXkTsaA&s" alt="Lipstick">
+                    </div>
+                    <div class="makeup-content">
+                        <h3>Lip Products</h3>
+                        <p>From glossy shine to bold matte—add the perfect pop to your pout. Smooth, rich color that stays all day!</p>
+                        <a href="#" class="btn" style="margin-top: 15px; display: inline-block;">View product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Haircare Section -->
+    <section id="haircare" style="background: #F8FAFC;">
+        <div class="haircare-hero">
+            <h1>Haircare Solutions</h1>
+            <p>Expert advice for all hair types and concerns</p>
+        </div>
+        
+        <div class="container">
+            <div class="section-title">
+                <h2>Hair Type Guides</h2>
+            </div>
+            
+            <div class="hair-type-guide">
+                <!-- Curly Hair -->
+                <div class="hair-card">
+                    <h3><i class="fas fa-water"></i> Curly Hair</h3>
+                    <p>Products and techniques to define curls and reduce frizz</p>
+                    <ul>
+                        <li>Sulfate-free shampoos</li>
+                        <li>Curl-defining creams</li>
+                        <li>Diffusing techniques</li>
+                       <a href="https://amzn.in/d/byKuUNZ" class="btn" style="margin-top: 15px; display: inline-block;">Recommended Product</a> 
+                    </ul>
+                </div>
+                
+                <!-- Fine Hair -->
+                <div class="hair-card">
+                    <h3><i class="fas fa-feather-alt"></i> Fine Hair</h3>
+                    <p>Volumizing solutions that don't weigh hair down</p>
+                    <ul>
+                        <li>Root-lifting sprays</li>
+                        <li>Texturizing products</li>
+                        <li>Blowout tutorials</li>
+                        <a href="#" class="btn" style="margin-top: 15px; display: inline-block;">Recommended Product</a>
+                    </ul>
+                </div>
+                
+                <!-- Damaged Hair -->
+                <div class="hair-card">
+                    <h3><i class="fas fa-fire"></i> Damaged Hair</h3>
+                    <p>Repair treatments for chemically treated or heat-damaged hair</p>
+                    <ul>
+                        <li>Protein treatments</li>
+                        <li>Bond-building products</li>
+                        <li>Heat protectants</li>
+                        <a href="#" class="btn" style="margin-top: 15px; display: inline-block;">Recommended Product</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About StyleNature7</h2>
+            </div>
+            
+            <div class="about-section">
+                <div class="about-content">
+                    <h2>Hi, I'm Nila - Your Beauty Guide</h2>
+                    <p>As a licensed esthetician and makeup artist with 3 years experience, I created StyleNature7 to share science-backed beauty advice without the hype.</p>
+                    <p>Unlike other beauty sites, we:</p>
+                    <ul style="margin: 20px 0 20px 20px;">
+                        <li>Test products for at least 4 weeks before reviewing</li>
+                        <li>Analyze ingredient lists with dermatologists</li>
+                        <li>Show real before/after results (no filters!)</li>
+                        <li>Recommend products at all price points</li>
+                    </ul>
+                    <p>My goal is to help you make informed decisions about your beauty routine.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/style_nature7?utm_source=qr&igsh=MWRvMW54cjk5bnhmMQ=="><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmVhdXR5JTIwYmxvZ2dlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Sarah - Beauty Blogger">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                document.querySelector('.nav-links').classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
